@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junior Hinostroza | Ingeniería de Sistemas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <!-- FontAwesome para iconos de redes sociales -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       MODAL DE CERTIFICADOS
+       Estructura inyectada en el DOM; JS la activa/oculta.
+       Cerrar con (.close-btn) o clic fuera de .modal-content.
+  ============================================================ -->
+  <div class="modal" id="certModal" role="dialog" aria-modal="true" aria-label="Visor de certificado">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal" aria-label="Cerrar modal">✕</button>
+      <img id="modalImg" src="" alt="Certificado" />
+      <p class="modal-caption" id="modalCaption"></p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BARRA DE NAVEGACIÓN FIJA
+       JS agrega clase 'scrolled' al hacer scroll > 50px.
+       Incluye buscador global y menú hamburguesa para móvil.
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">JH<span class="accent">.</span></div>
+
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#datos-personales">Datos</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#habilidades-blandas">Competencias</a></li>
+      <li><a href="#certificados">Certificados</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#congresos">Congresos</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <!-- Buscador global — filtrado en tiempo real por JS -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="globalSearch"
+        placeholder="🔍 Buscar módulos, certificados, experiencia..."
+        autocomplete="off"
+        aria-label="Buscar en el CV"
+      />
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menú móvil desplegable -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#sobre-mi"          class="mobile-link">Sobre mí</a></li>
+      <li><a href="#datos-personales"  class="mobile-link">Datos Personales</a></li>
+      <li><a href="#habilidades"       class="mobile-link">Habilidades</a></li>
+      <li><a href="#habilidades-blandas" class="mobile-link">Competencias</a></li>
+      <li><a href="#certificados"      class="mobile-link">Certificados</a></li>
+      <li><a href="#experiencia"       class="mobile-link">Experiencia</a></li>
+      <li><a href="#congresos"         class="mobile-link">Congresos</a></li>
+      <li><a href="#proyectos"         class="mobile-link">Proyectos</a></li>
+      <li><a href="#contacto"          class="mobile-link">Contacto</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       HERO SECTION
+       Canvas de partículas + datos de identidad + redes sociales.
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <canvas id="particleCanvas"></canvas>
+<!-- ============================================================
+        CONTENIDO PRINCIPAL DEL HERO
+        Foto de perfil, nombre, título profesional y botones sociales.
+  ============================================================ -->
+    <div class="hero-content">
+      <div class="profile-pic-wrapper">
+        <img
+          src="https://api.dicebear.com/7.x/avataaars/svg?seed=junior&backgroundColor=6d28d9"
+          alt="Foto de perfil de Junior Hinostroza"
+          class="profile-pic"
+        />
+      </div>
+
+      <div class="hero-text">
+        <p class="hero-greeting">Hola, soy</p>
+        <h1 class="hero-name">Junior <span class="accent">Hinostroza</span></h1>
+        <p class="hero-title">
+          <span id="typewriter"></span><span class="cursor">|</span>
+        </p>
+      </div>
+
+      <!-- ============================================================
+           BOTONES DE REDES SOCIALES
+           Reemplaza los valores href con tus propios links.
+           Los placeholders están marcados con comentarios claros.
+      ============================================================ -->
+      <div class="hero-socials">
+
+        <!-- ▼ REEMPLAZA EL HREF CON TU URL DE GITHUB -->
+        <a href="https://github.com/N1C0L4SJ?tab=repositories" target="_blank" rel="noopener noreferrer"
+           class="social-btn social-btn--github" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+          GitHub
+        </a>
+
+        <!-- ▼ REEMPLAZA EL HREF CON TU URL DE LINKEDIN -->
+        <a href="https://www.linkedin.com/in/junior-hinostroza-a4810a411/" target="_blank" rel="noopener noreferrer"
+           class="social-btn social-btn--linkedin" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+          LinkedIn
+        </a>
+
+        <!-- ▼ REEMPLAZA CON TU USUARIO DE INSTAGRAM (OPCIONAL) -->
+        <a href="https://www.instagram.com/juniornicolas18/" target="_blank" rel="noopener noreferrer"
+           class="social-btn social-btn--instagram" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+          Instagram
+        </a>
+
+        <!-- ▼ REEMPLAZA CON TU USUARIO DE FACEBOOK (OPCIONAL) -->
+        <a href="https://www.facebook.com/J1r11/" target="_blank" rel="noopener noreferrer"
+           class="social-btn social-btn--facebook" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+          Facebook
+        </a>
+
+        <a href="#contacto" class="social-btn cta-btn" aria-label="Contacto">
+          <i class="fas fa-envelope"></i> Contáctame
+        </a>
+
+        <!--
+          ▼ BOTÓN DE DESCARGA DEL CV
+          Arquitectura desacoplada para Docker + Nginx:
+          - El href apunta a la raíz relativa del servidor: "CV_Junior_Hinostroza.pdf"
+          - El atributo [download] fuerza la descarga sin renderizar en el navegador.
+          - El PDF es un binario INDEPENDIENTE del código fuente HTML/CSS/JS.
+          - Para actualizar el CV: reemplazar únicamente el archivo .pdf en la
+            carpeta raíz del contenedor (bind-mount Docker) y Nginx lo sirve
+            de inmediato en la siguiente petición, SIN recompilar ni reiniciar.
+        -->
+        <a href="CV_Junior_Hinostroza.pdf" download
+           class="social-btn cta-btn" aria-label="Descargar CV">
+          <i class="fas fa-file-pdf"></i> Descargar CV 📄
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator"><span></span></div>
+  </section>
+
+  <!-- ============================================================
+       MAIN — Contenedor de todas las secciones de contenido
+  ============================================================ -->
+  <main class="main-content">
+
+    <!-- ============================================================
+         SECCIÓN: SOBRE MÍ
+    ============================================================ -->
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <h2 class="section-title">Sobre <span class="accent">Mí</span></h2>
+
+        <div class="about-grid">
+          <div class="glass-card about-text searchable" data-search="sobre mi junior hinostroza ingeniería sistemas huánuco">
+            <p>
+              Soy <strong>Junior Hinostroza</strong>, estudiante de <strong>Ingeniería de Sistemas</strong>
+              en la Universidad Nacional Hermilio Valdizán (UNHEVAL), sede Huánuco, Perú. Me encuentro
+              cursando los últimos ciclos de la carrera, con una sólida formación en análisis y diseño
+              de sistemas de información, arquitectura de software, administración de infraestructura
+              tecnológica, redes de computadoras y gestión de bases de datos relacionales y no
+              relacionales. Mi perfil técnico está orientado a la integración de tecnologías emergentes
+              con metodologías formales de ingeniería del software, buscando siempre soluciones
+              eficientes, escalables y alineadas con los objetivos estratégicos de las organizaciones.
+            </p>
+            <p>
+              Durante mi formación académica he participado activamente en proyectos de investigación
+              aplicada relacionados con la modelación de sistemas dinámicos usando <span class="tag">Vensim</span>,
+              diseño de arquitecturas cliente-servidor con protocolos <span class="tag">TCP/IP</span>,
+              <span class="tag">DNS</span> y <span class="tag">DHCP</span>, implementación de
+              contenedores con <span class="tag">Docker</span> y <span class="tag">Docker Compose</span>,
+              y desarrollo de aplicaciones web utilizando el stack <span class="tag">MERN</span>
+              (MongoDB, Express, React, Node.js). También he explorado herramientas de virtualización
+              como <span class="tag">VirtualBox</span> y <span class="tag">VMware</span> para entornos
+              de pruebas y laboratorios de redes.
+            </p>
+            <p>
+              Mi objetivo profesional a corto plazo es consolidarme como <strong>Ingeniero de Sistemas</strong>
+              especializado en la administración de infraestructura cloud y desarrollo de software
+              empresarial, aportando valor real a equipos multidisciplinarios mediante la automatización
+              de procesos, la implementación de pipelines de CI/CD y la adopción de buenas prácticas
+              de seguridad informática en entornos productivos. A mediano plazo, aspiro a obtener
+              certificaciones internacionales como <strong>AWS Certified Solutions Architect</strong>
+              y <strong>Cisco CCNA</strong>, y a liderar proyectos de transformación digital en
+              el sector público y privado de la región Huánuco.
+            </p>
+            <p>
+              Fuera del ámbito académico, colaboro voluntariamente en iniciativas de alfabetización
+              digital en comunidades rurales de la región, y participo en grupos de estudio de
+              ciberseguridad y ethical hacking. Me apasiona la investigación de operaciones, la
+              simulación de sistemas complejos y la optimización de procesos mediante algoritmos
+              heurísticos y metaheurísticos como algoritmos genéticos y recocido simulado.
+            </p>
+          </div>
+
+          <div class="about-stats">
+            <div class="glass-card stat-card">
+              <span class="stat-number accent">6</span>
+              <span class="stat-label">Ciclos completados</span>
+            </div>
+            <div class="glass-card stat-card">
+              <span class="stat-number accent">10</span>
+              <span class="stat-label">Certificaciones</span>
+            </div>
+            <div class="glass-card stat-card">
+              <span class="stat-number accent">8+</span>
+              <span class="stat-label">Proyectos académicos</span>
+            </div>
+            <div class="glass-card stat-card">
+              <span class="stat-number accent">4</span>
+              <span class="stat-label">Congresos asistidos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: DATOS PERSONALES
+    ============================================================ -->
+    <section class="section" id="datos-personales">
+      <div class="container">
+        <h2 class="section-title">Datos <span class="accent">Personales</span></h2>
+        <p class="section-subtitle">Información de contacto y perfil académico</p>
+
+        <div class="datos-grid searchable" data-search="datos personales junior hinostroza huánuco sistemas">
+          <div class="glass-card dato-card">
+            <span class="dato-icon">👤</span>
+            <div class="dato-body">
+              <p class="dato-label">Nombre completo</p>
+              <p class="dato-value">Junior Nicolas Hinostroza Salis</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">🎂</span>
+            <div class="dato-body">
+              <p class="dato-label">Fecha de nacimiento</p>
+              <p class="dato-value">23 de octubre de 2004</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">📍</span>
+            <div class="dato-body">
+              <p class="dato-label">Lugar de residencia</p>
+              <p class="dato-value">Huánuco, Perú 🇵🇪</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">📧</span>
+            <div class="dato-body">
+              <p class="dato-label">Correo electrónico</p>
+              <p class="dato-value">juniorhin15@gmail.com</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">📱</span>
+            <div class="dato-body">
+              <p class="dato-label">Teléfono / WhatsApp</p>
+              <p class="dato-value">+51 900 670 757</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">🏛️</span>
+            <div class="dato-body">
+              <p class="dato-label">Universidad</p>
+              <p class="dato-value">UNHEVAL — Facultad de Ingeniería Industrial, de sistemas y mecatrónica</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">📚</span>
+            <div class="dato-body">
+              <p class="dato-label">Carrera profesional</p>
+              <p class="dato-value">Ingeniería de Sistemas</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">🎓</span>
+            <div class="dato-body">
+              <p class="dato-label">Ciclo académico actual</p>
+              <p class="dato-value">VII Ciclo — Promoción 2023</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">🌐</span>
+            <div class="dato-body">
+              <p class="dato-label">Idiomas</p>
+              <p class="dato-value">Español (nativo)</p>
+            </div>
+          </div>
+          <div class="glass-card dato-card">
+            <span class="dato-icon">🪪</span>
+            <div class="dato-body">
+              <p class="dato-label">DNI</p>
+              <p class="dato-value">72105995</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: HABILIDADES TÉCNICAS
+    ============================================================ -->
+    <section class="section" id="habilidades">
+      <div class="container">
+        <h2 class="section-title">Habilidades <span class="accent">Técnicas</span></h2>
+        <p class="section-subtitle">Stack tecnológico y dominio por área de Ingeniería de Sistemas</p>
+
+        <div class="skills-grid searchable" data-search="habilidades técnicas sistemas redes linux docker javascript python sql">
+
+          <div class="glass-card skill-card">
+            <i class="devicon-html5-plain colored skill-icon"></i>
+            <h3>HTML5</h3>
+            <p class="skill-desc">Semántica avanzada, accesibilidad ARIA, microformatos Schema.org y plantillas de componentes web nativos (Web Components API).</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            <span class="skill-pct">92%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-css3-plain colored skill-icon"></i>
+            <h3>CSS3 / SASS</h3>
+            <p class="skill-desc">Flexbox, CSS Grid, animaciones con @keyframes, variables CSS, media queries y diseño responsivo multi-breakpoint. Preprocesador SASS con arquitectura 7-1.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            <span class="skill-pct">88%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-javascript-plain colored skill-icon"></i>
+            <h3>JavaScript ES2022+</h3>
+            <p class="skill-desc">Programación asíncrona (Promises, async/await), Fetch API, manipulación avanzada del DOM, módulos ES6, patrones de diseño (Observer, Factory, Singleton) y gestión del Event Loop.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-python-plain colored skill-icon"></i>
+            <h3>Python 3</h3>
+            <p class="skill-desc">Scripting de automatización, análisis de datos con Pandas y NumPy, desarrollo de APIs REST con FastAPI y Flask, y algoritmos de machine learning básicos con scikit-learn.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            <span class="skill-pct">78%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-linux-plain colored skill-icon"></i>
+            <h3>Linux (Ubuntu/CentOS)</h3>
+            <p class="skill-desc">Administración de servidores GNU/Linux: gestión de usuarios, permisos, systemd, cron jobs, firewall con iptables/ufw, monitoreo con htop/netstat y scripting en Bash para automatización de backups y despliegues.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-docker-plain colored skill-icon"></i>
+            <h3>Docker & Compose</h3>
+            <p class="skill-desc">Contenedorización de aplicaciones multicapa, escritura de Dockerfiles optimizados con multi-stage builds, orquestación de servicios con Docker Compose y publicación en Docker Hub.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            <span class="skill-pct">75%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-git-plain colored skill-icon"></i>
+            <h3>Git & GitHub</h3>
+            <p class="skill-desc">Flujos de trabajo con Git Flow y GitHub Flow, gestión de ramas feature/release/hotfix, resolución de conflictos de merge, pull requests, code reviews y GitHub Actions para CI/CD.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-mysql-plain colored skill-icon"></i>
+            <h3>MySQL / PostgreSQL</h3>
+            <p class="skill-desc">Diseño de esquemas relacionales normalizados (3FN, BCNF), stored procedures, triggers, vistas materializadas, índices compuestos, optimización de consultas con EXPLAIN ANALYZE y configuración de replicación maestro-esclavo.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            <span class="skill-pct">82%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-mongodb-plain colored skill-icon"></i>
+            <h3>MongoDB / NoSQL</h3>
+            <p class="skill-desc">Modelado de documentos JSON/BSON, operaciones CRUD con el driver oficial, aggregation pipelines, índices geoespaciales, GridFS para almacenamiento de archivos y configuración de replica sets.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+            <span class="skill-pct">72%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-amazonwebservices-plain colored skill-icon"></i>
+            <h3>AWS (Cloud)</h3>
+            <p class="skill-desc">Configuración de instancias EC2, almacenamiento en S3 con políticas IAM, funciones Lambda serverless, balanceo de carga con ELB, redes VPC con subnets públicas/privadas y Route 53 para gestión de DNS.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+            <span class="skill-pct">65%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-cisco-plain colored skill-icon"></i>
+            <h3>Redes TCP/IP</h3>
+            <p class="skill-desc">Modelo OSI, protocolos TCP/UDP/IP, subnetting CIDR, configuración de routers y switches Cisco (Packet Tracer), VLANs, STP, NAT/PAT, protocolos de enrutamiento dinámico OSPF y RIP v2.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="77"></div></div>
+            <span class="skill-pct">77%</span>
+          </div>
+
+          <div class="glass-card skill-card">
+            <i class="devicon-react-original colored skill-icon"></i>
+            <h3>React.js</h3>
+            <p class="skill-desc">Componentes funcionales con Hooks (useState, useEffect, useContext, useReducer), React Router v6, gestión de estado con Context API y Zustand, y consumo de APIs REST con Axios.</p>
+            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            <span class="skill-pct">70%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: HABILIDADES BLANDAS Y COMPETENCIAS
+    ============================================================ -->
+    <section class="section" id="habilidades-blandas">
+      <div class="container">
+        <h2 class="section-title">Habilidades Blandas y <span class="accent">Competencias</span></h2>
+        <p class="section-subtitle">Perfil humano, metodológico y de gestión de proyectos</p>
+
+        <div class="blandas-grid">
+
+          <!-- Liderazgo y Scrum -->
+          <div class="glass-card blanda-card searchable" data-search="liderazgo scrum agile metodologías ágiles sprint backlog">
+            <div class="blanda-icon">🧭</div>
+            <h3>Liderazgo en Metodologías Ágiles (Scrum)</h3>
+            <p>
+              He ejercido el rol de <strong>Scrum Master</strong> en equipos académicos de hasta 6
+              personas durante el desarrollo de proyectos de software empresarial. Mi función
+              comprendió la facilitación de ceremonias Scrum: planificación de sprints con
+              estimación mediante <em>Planning Poker</em>, Daily Stand-ups de 15 minutos orientados
+              al impedimento, Sprint Reviews con demostración funcional ante stakeholders ficticios
+              y Retrospectivas con el método <em>Start/Stop/Continue</em>.
+            </p>
+            <p>
+              Gestioné el <strong>Product Backlog</strong> priorizando historias de usuario con
+              criterios MoSCoW (Must, Should, Could, Won't), descomponiéndolas en tareas técnicas
+              con Definition of Done (DoD) verificable. Utilicé tableros Kanban en <strong>Trello</strong>
+              y <strong>Jira Software</strong> para el seguimiento visual del flujo de trabajo,
+              calculando la velocidad del equipo (Story Points por sprint) y generando
+              <em>Burndown Charts</em> para presentación en revisiones académicas.
+            </p>
+            <p>
+              Apliqué principios del <strong>Manifesto Ágil</strong>: individuos e interacciones
+              sobre procesos y herramientas, software funcionando sobre documentación exhaustiva,
+              colaboración con el cliente sobre negociación de contratos, y respuesta al cambio
+              sobre seguir un plan. Este enfoque nos permitió entregar incrementos de software
+              funcional cada dos semanas, reduciendo el retrabajo en un 40% respecto a proyectos
+              con metodología cascada (Waterfall) previos.
+            </p>
+            <div class="blanda-tags">
+              <span class="tag">Scrum</span><span class="tag">Kanban</span>
+              <span class="tag">Jira</span><span class="tag">Trello</span>
+              <span class="tag">Planning Poker</span><span class="tag">OKRs</span>
+            </div>
+          </div>
+
+          <!-- Comunicación y stakeholders -->
+          <div class="glass-card blanda-card searchable" data-search="comunicación stakeholders presentación requerimientos levantamiento">
+            <div class="blanda-icon">🗣️</div>
+            <h3>Comunicación Asertiva con Stakeholders</h3>
+            <p>
+              Desarrollo una comunicación técnica y no técnica efectiva, adaptando el nivel de
+              abstracción según el perfil del interlocutor. Con equipos de desarrollo utilizo
+              terminología precisa de ingeniería (diagramas UML, especificaciones IEEE 830,
+              pseudocódigo estructurado). Con clientes y directivos empleo lenguaje de negocio,
+              prototipos de alta fidelidad en <strong>Figma</strong> y presentaciones ejecutivas
+              en PowerPoint con KPIs y ROI proyectado.
+            </p>
+            <p>
+              He participado en sesiones de <strong>levantamiento de requerimientos</strong>
+              utilizando técnicas de entrevista estructurada, talleres JAD (Joint Application
+              Development), análisis de documentos y observación directa de procesos operativos.
+              Los requerimientos funcionales y no funcionales fueron documentados en
+              <strong>especificaciones SRS</strong> (Software Requirements Specification) siguiendo
+              el estándar IEEE 830-1998, garantizando trazabilidad completa desde el requisito
+              hasta el caso de prueba.
+            </p>
+            <p>
+              Elaboré <strong>matrices RACI</strong> para clarificar responsabilidades en proyectos
+              multidisciplinarios, y conduje reuniones de consenso entre áreas de TI, administración
+              y operaciones para validar prototipos funcionales antes del inicio del desarrollo,
+              reduciendo las solicitudes de cambio en fases tardías del proyecto.
+            </p>
+            <div class="blanda-tags">
+              <span class="tag">IEEE 830</span><span class="tag">UML</span>
+              <span class="tag">Figma</span><span class="tag">Matriz RACI</span>
+              <span class="tag">Talleres JAD</span>
+            </div>
+          </div>
+
+          <!-- Resolución de problemas -->
+          <div class="glass-card blanda-card searchable" data-search="resolución problemas pensamiento crítico debugging algoritmos">
+            <div class="blanda-icon">🔬</div>
+            <h3>Resolución de Problemas Complejos y Pensamiento Crítico</h3>
+            <p>
+              Aplico metodología estructurada para la resolución de problemas técnicos:
+              identificación del problema raíz mediante el análisis de los <strong>5 Porqués</strong>
+              y diagramas de <strong>Ishikawa (causa-efecto)</strong>, descomposición del problema
+              en subproblemas independientes (divide y vencerás), formulación de hipótesis técnicas,
+              prueba controlada de soluciones en entornos de staging y documentación detallada
+              de la solución implementada para transferencia de conocimiento.
+            </p>
+            <p>
+              En el ámbito de la programación, tengo experiencia en <strong>debugging sistemático</strong>
+              con herramientas como Chrome DevTools (breakpoints, profiling de memoria y CPU,
+              análisis de waterfall de red), GDB para programas en C/C++, y logs estructurados
+              con niveles ERROR/WARN/INFO/DEBUG en aplicaciones Node.js y Python.
+            </p>
+            <p>
+              Para problemas de optimización, aplico técnicas de la <strong>Investigación de
+              Operaciones</strong>: programación lineal con el método Símplex, modelos de transporte
+              y asignación, y simulación de sistemas dinámicos con <strong>Vensim PLE</strong>
+              para modelar comportamientos de retroalimentación positiva/negativa en sistemas
+              organizacionales complejos.
+            </p>
+            <div class="blanda-tags">
+              <span class="tag">5 Porqués</span><span class="tag">Ishikawa</span>
+              <span class="tag">Vensim</span><span class="tag">Símplex</span>
+              <span class="tag">DevTools</span>
+            </div>
+          </div>
+
+          <!-- Resiliencia y despliegues -->
+          <div class="glass-card blanda-card searchable" data-search="resiliencia presión despliegues producción DevOps incidentes">
+            <div class="blanda-icon">💪</div>
+            <h3>Resiliencia Técnica en Despliegues y Gestión de Incidentes</h3>
+            <p>
+              He desarrollado una alta tolerancia a la presión durante despliegues en producción
+              y situaciones de incidentes críticos. Aprendí a mantener la calma y aplicar
+              procedimientos estructurados de respuesta a incidentes: triaje del problema,
+              comunicación inmediata al equipo, implementación de rollback cuando el impacto
+              supera un umbral definido, y análisis post-mortem sin culpas (blameless post-mortem)
+              para identificar mejoras en los procesos de QA y CI/CD.
+            </p>
+            <p>
+              Implementé estrategias de <strong>disaster recovery</strong> en proyectos de laboratorio:
+              backups incrementales con <em>rsync</em> y <em>cron</em>, snapshots de máquinas
+              virtuales, replicación de bases de datos PostgreSQL con <em>pg_dump</em> automatizado
+              y almacenamiento cifrado en AWS S3 con políticas de retención de 30/90/365 días.
+              También diseñé planes de continuidad de negocio (BCP) con objetivos de punto de
+              recuperación (RPO) y tiempo de recuperación (RTO) claramente definidos.
+            </p>
+            <div class="blanda-tags">
+              <span class="tag">Post-mortem</span><span class="tag">Rollback</span>
+              <span class="tag">rsync</span><span class="tag">BCP/DRP</span>
+              <span class="tag">RPO/RTO</span>
+            </div>
+          </div>
+
+          <!-- Trabajo en equipo -->
+          <div class="glass-card blanda-card searchable" data-search="trabajo equipo colaboración pair programming code review">
+            <div class="blanda-icon">🤝</div>
+            <h3>Trabajo en Equipo y Colaboración Técnica</h3>
+            <p>
+              Practico activamente la <strong>programación en pareja (Pair Programming)</strong>
+              tanto en el rol de driver (quien escribe el código) como en el de navigator
+              (quien guía la lógica y revisa errores en tiempo real). Esta práctica ha sido
+              fundamental en proyectos donde la complejidad algorítmica requería múltiples
+              perspectivas simultáneas para evitar sesgos cognitivos y errores de lógica
+              difíciles de detectar en revisión individual.
+            </p>
+            <p>
+              Participo en <strong>code reviews</strong> constructivos siguiendo guías de estilo
+              (ESLint, Pylint, PEP 8), principios SOLID y patrones de diseño GoF. Mis revisiones
+              se enfocan en legibilidad, mantenibilidad, cobertura de casos borde y seguridad
+              (inyección SQL, XSS, CSRF). Creo firmemente que el code review es una práctica
+              de aprendizaje mutuo, no de fiscalización, y lo abordo con esa mentalidad constructiva.
+            </p>
+            <div class="blanda-tags">
+              <span class="tag">Pair Programming</span><span class="tag">Code Review</span>
+              <span class="tag">ESLint</span><span class="tag">SOLID</span><span class="tag">PEP 8</span>
+            </div>
+          </div>
+
+          <!-- Gestión del tiempo -->
+          <div class="glass-card blanda-card searchable" data-search="gestión tiempo priorización entregables productividad GTD">
+            <div class="blanda-icon">⏱️</div>
+            <h3>Gestión del Tiempo y Productividad Personal</h3>
+            <p>
+              Aplico la técnica <strong>Pomodoro</strong> (25 min de trabajo profundo + 5 min
+              descanso) para tareas de alta concentración como refactoring de código, lectura de
+              documentación técnica y redacción de informes de ingeniería. Para planificación
+              semanal utilizo el método <strong>GTD (Getting Things Done)</strong> de David Allen,
+              capturando todas las tareas en una bandeja de entrada digital (Notion), procesándolas
+              y organizándolas en proyectos, contextos y listas de próximas acciones.
+            </p>
+            <p>
+              Gestiono múltiples deadlines académicos y personales simultáneamente mediante
+              la <strong>Matriz de Eisenhower</strong> (urgente/importante), priorizando tareas
+              de alto impacto sobre las de alta urgencia pero bajo valor. Esta disciplina me
+              ha permitido mantener un promedio académico superior al 16/20 mientras avanzo
+              en proyectos paralelos de certificación e investigación.
+            </p>
+            <div class="blanda-tags">
+              <span class="tag">Pomodoro</span><span class="tag">GTD</span>
+              <span class="tag">Notion</span><span class="tag">Eisenhower</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: CERTIFICADOS (10 CERTIFICACIONES)
+    ============================================================ -->
+    <section class="section" id="certificados">
+      <div class="container">
+        <h2 class="section-title">Mis <span class="accent">Certificados</span></h2>
+        <p class="section-subtitle">Formación continua, certificaciones y reconocimientos académico-profesionales</p>
+
+        <div class="certs-grid searchable" data-search="certificados aws meta google linux cloud nosql ciberseguridad cisco redes">
+
+          <!-- CERTIFICADO 1 -->
+          <div class="glass-card cert-card" data-cert-title="AWS Certified Developer – Associate">
+            <div class="cert-badge cert-badge--aws">
+              <i class="fab fa-aws" style="font-size:1.5rem;"></i>
+              <span>AWS</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">AWS Certified Developer – Associate</h3>
+              <p class="cert-issuer">Amazon Web Services (AWS)</p>
+              <p class="cert-desc">
+                Certificación que valida la capacidad de diseñar, desarrollar y desplegar
+                aplicaciones en la nube de AWS. Cubre servicios como EC2, Lambda, API Gateway,
+                DynamoDB, S3, IAM, CloudFormation y CodePipeline. Evaluación práctica de
+                280 puntos mínimos sobre 1000.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Marzo 2024</span>
+                <span class="cert-id">ID: AWS-DEV-2024-7823</span>
+              </div>
+              <!-- Imagen oculta ya no es necesaria: el botón contiene data-src y data-caption -->
+              <button class="btn-cert"
+                data-src="img/certificado1.jpg"
+                data-caption="AWS Certified Developer – Associate · Amazon Web Services (AWS) · Marzo 2024">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 2 -->
+          <div class="glass-card cert-card" data-cert-title="Meta Front-End Developer Professional">
+            <div class="cert-badge cert-badge--meta">
+              <i class="fab fa-meta" style="font-size:1.5rem;"></i>
+              <span>Meta</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">Meta Front-End Developer Professional Certificate</h3>
+              <p class="cert-issuer">Meta (Coursera)</p>
+              <p class="cert-desc">
+                Programa de 9 cursos que cubre HTML, CSS, JavaScript, React, UX/UI, testing
+                con Jest, control de versiones con Git y preparación de portafolio profesional.
+                180 horas de contenido práctico con proyectos calificados por pares.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Septiembre 2023</span>
+                <span class="cert-id">ID: META-FE-2023-4491</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado2.jpg"
+                data-caption="Meta Front-End Developer Professional Certificate · Meta (Coursera) · Septiembre 2023">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 3 -->
+          <div class="glass-card cert-card" data-cert-title="Google UX Design Certificate">
+            <div class="cert-badge cert-badge--google">
+              <i class="fab fa-google" style="font-size:1.5rem;"></i>
+              <span>Google</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">Google UX Design Professional Certificate</h3>
+              <p class="cert-issuer">Google (Coursera)</p>
+              <p class="cert-desc">
+                Certificación que abarca todo el proceso de diseño centrado en el usuario:
+                investigación de usuarios (entrevistas, encuestas, mapas de empatía), wireframing
+                en papel y digital, prototipado con Figma, pruebas de usabilidad y diseño
+                inclusivo. Incluye proyectos reales de portafolio.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Enero 2023</span>
+                <span class="cert-id">ID: GOOG-UX-2023-1105</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado3.jpg"
+                data-caption="Google UX Design Professional Certificate · Google (Coursera) · Enero 2023">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 4 -->
+          <div class="glass-card cert-card" data-cert-title="Administrador de Servidores Linux – LPIC-1">
+            <div class="cert-badge cert-badge--linux">
+              <i class="devicon-linux-plain" style="font-size:1.5rem;color:#fff;"></i>
+              <span>LPI</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">Administrador de Servidores Linux – LPIC-1</h3>
+              <p class="cert-issuer">Linux Professional Institute (LPI)</p>
+              <p class="cert-desc">
+                Certificación internacional de nivel de entrada para administradores de sistemas Linux.
+                Abarca instalación y configuración de sistemas GNU/Linux, comandos de shell (Bash),
+                gestión de paquetes (APT, YUM/DNF), permisos de archivo, procesos del sistema,
+                configuración de red (interfaces, DNS, SSH), sistemas de archivos (ext4, XFS, LVM)
+                y fundamentos de seguridad (SELinux, AppArmor, sudo, PAM). Examen de 117 preguntas
+                prácticas con 500 puntos necesarios sobre 800.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Junio 2023</span>
+                <span class="cert-id">ID: LPI-LPIC1-2023-8844</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado4.jpg"
+                data-caption="Administrador de Servidores Linux – LPIC-1 · Linux Professional Institute · Junio 2023">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 5 -->
+          <div class="glass-card cert-card" data-cert-title="Especialista en Cloud Computing – Azure Fundamentals">
+            <div class="cert-badge cert-badge--azure">
+              <i class="devicon-azure-plain" style="font-size:1.5rem;color:#fff;"></i>
+              <span>Azure</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">Microsoft Azure Fundamentals (AZ-900)</h3>
+              <p class="cert-issuer">Microsoft Learn / Pearson VUE</p>
+              <p class="cert-desc">
+                Certificación de fundamentos en la nube de Microsoft Azure. Cubre conceptos
+                clave de cloud computing: modelos IaaS, PaaS y SaaS; alta disponibilidad,
+                escalabilidad, elasticidad y agilidad; diferencias entre capex y opex; servicios
+                principales de Azure (máquinas virtuales, Azure Kubernetes Service, Azure Functions,
+                Blob Storage, Azure SQL Database, Cognitive Services); seguridad y gobernanza
+                (Azure Active Directory, RBAC, Azure Policy, Compliance Manager); y gestión de
+                costos con la calculadora TCO de Azure.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Noviembre 2023</span>
+                <span class="cert-id">ID: MS-AZ900-2023-6621</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado5.jpg"
+                data-caption="Microsoft Azure Fundamentals (AZ-900) · Microsoft Learn / Pearson VUE · Noviembre 2023">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 6 -->
+          <div class="glass-card cert-card" data-cert-title="MongoDB – Base de Datos NoSQL para Desarrolladores">
+            <div class="cert-badge cert-badge--mongo">
+              <i class="devicon-mongodb-plain" style="font-size:1.5rem;color:#fff;"></i>
+              <span>MongoDB</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">MongoDB Associate Developer (Node.js)</h3>
+              <p class="cert-issuer">MongoDB University</p>
+              <p class="cert-desc">
+                Certificación oficial de MongoDB que valida el uso profesional de MongoDB
+                con Node.js. Evalúa conocimientos en: modelado de datos orientado a documentos
+                (embedded vs. referenced documents), uso del driver oficial, operaciones CRUD
+                con filtros complejos (operadores $eq, $in, $and, $or, $elemMatch), aggregation
+                framework con etapas $match, $group, $project, $lookup y $unwind, índices
+                compuestos y parciales, transacciones ACID multi-documento (MongoDB 4.0+),
+                y conexión segura con Atlas mediante connection strings con TLS/SSL.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Febrero 2024</span>
+                <span class="cert-id">ID: MDB-DEV-NODE-2024-3301</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado6.jpg"
+                data-caption="MongoDB Associate Developer (Node.js) · MongoDB University · Febrero 2024">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 7 -->
+          <div class="glass-card cert-card" data-cert-title="Ciberseguridad en Entornos Cliente-Servidor – EC-Council">
+            <div class="cert-badge cert-badge--security">
+              <i class="fas fa-shield-alt" style="font-size:1.5rem;color:#fff;"></i>
+              <span>CEH</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">Certified Ethical Hacker Essentials (CEHv12 – Fundamentos)</h3>
+              <p class="cert-issuer">EC-Council (Programa Académico)</p>
+              <p class="cert-desc">
+                Formación en hacking ético y seguridad ofensiva: fases del hacking (reconocimiento
+                pasivo/activo con herramientas Nmap, Maltego, Shodan; enumeración de servicios con
+                Netcat y Nessus; explotación controlada con Metasploit Framework; post-explotación
+                y persistencia; limpieza de huellas). Análisis de vulnerabilidades OWASP Top 10
+                (SQLi, XSS, CSRF, IDOR, XXE, SSRF, desconfiguración de seguridad, componentes
+                vulnerables). Hardening de servidores Apache/Nginx, configuración de WAF (ModSecurity),
+                análisis de tráfico con Wireshark y configuración de IDS/IPS con Snort.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Agosto 2024</span>
+                <span class="cert-id">ID: ECH-ESSENTIALS-2024-7712</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado7.jpg"
+                data-caption="Certified Ethical Hacker Essentials (CEHv12) · EC-Council Programa Académico · Agosto 2024">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 8 -->
+          <div class="glass-card cert-card" data-cert-title="Cisco CCNA – Redes y Enrutamiento">
+            <div class="cert-badge cert-badge--cisco">
+              <i class="devicon-cisco-plain" style="font-size:1.5rem;color:#fff;"></i>
+              <span>Cisco</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">Cisco CCNA – Introduction to Networks (ITN)</h3>
+              <p class="cert-issuer">Cisco Networking Academy</p>
+              <p class="cert-desc">
+                Primer módulo del programa CCNA que abarca fundamentos de redes: modelo OSI vs.
+                TCP/IP, direccionamiento IPv4 e IPv6 con subnetting VLSM, configuración básica
+                de switches y routers Cisco IOS (CLI, interfaces, VLAN, inter-VLAN routing con
+                Router-on-a-Stick), protocolos ARP, ICMP, DHCP y DNS en redes LAN/WAN. Simulación
+                de topologías complejas en Cisco Packet Tracer con pruebas de conectividad end-to-end.
+                Aprobado con nota de 87.3% en evaluación final práctica.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Mayo 2023</span>
+                <span class="cert-id">ID: CISCO-ITN-2023-5590</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado8.jpg"
+                data-caption="Cisco CCNA – Introduction to Networks (ITN) · Cisco Networking Academy · Mayo 2023">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 9 -->
+          <div class="glass-card cert-card" data-cert-title="DevOps con Docker y Kubernetes – Udemy">
+            <div class="cert-badge cert-badge--devops">
+              <i class="devicon-docker-plain" style="font-size:1.5rem;color:#fff;"></i>
+              <span>DevOps</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">DevOps: Docker, Kubernetes y CI/CD con GitHub Actions</h3>
+              <p class="cert-issuer">Udemy — Instructor: Tecno-X Academy</p>
+              <p class="cert-desc">
+                Curso completo de 42 horas que cubre el ciclo completo de DevOps moderno: creación
+                de imágenes Docker con Dockerfile multi-stage, orquestación de microservicios con
+                Docker Compose, introducción a Kubernetes (pods, deployments, services, ingress,
+                configmaps, secrets), construcción de pipelines CI/CD con GitHub Actions (build,
+                test, push to Docker Hub, deploy to VPS via SSH), infraestructura como código con
+                Terraform para aprovisionamiento en AWS, monitoreo de servicios con Prometheus y
+                Grafana, y estrategias de despliegue Blue-Green y Canary Release.
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Enero 2024</span>
+                <span class="cert-id">ID: UDEMY-DEVOPS-2024-9920</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado9.jpg"
+                data-caption="DevOps: Docker, Kubernetes y CI/CD con GitHub Actions · Udemy – Tecno-X Academy · Enero 2024">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+          <!-- CERTIFICADO 10 -->
+          <div class="glass-card cert-card" data-cert-title="Investigación de Operaciones y Simulación con Vensim">
+            <div class="cert-badge cert-badge--io">
+              <i class="fas fa-chart-line" style="font-size:1.5rem;color:#fff;"></i>
+              <span>I.O.</span>
+            </div>
+            <div class="cert-info">
+              <h3 class="cert-title">Investigación de Operaciones y Modelado de Sistemas con Vensim PLE</h3>
+              <p class="cert-issuer">UNHEVAL — Facultad de Ingeniería de Sistemas</p>
+              <p class="cert-desc">
+                Certificado de aprobación del curso de Investigación de Operaciones con especialización
+                en dinámica de sistemas usando Vensim PLE. Contenido: programación lineal (método
+                Símplex, método gráfico, análisis de sensibilidad), programación entera (Branch &
+                Bound, Gomory), modelos de transporte y asignación (método MODI, Esquina Noroeste,
+                Vogel), teoría de colas (M/M/1, M/M/c), cadenas de Markov, programación dinámica
+                y dinámica de sistemas con Vensim (diagramas causales, diagramas de flujo-nivel,
+                simulación de políticas de gestión empresarial y epidemiológica con modelos SIR).
+              </p>
+              <div class="cert-meta">
+                <span class="cert-date">📅 Diciembre 2023</span>
+                <span class="cert-id">ID: UNHEVAL-IO-2023-0011</span>
+              </div>
+              <button class="btn-cert"
+                data-src="img/certificado10.jpg"
+                data-caption="Investigación de Operaciones y Modelado con Vensim PLE · UNHEVAL – FISI · Diciembre 2023">
+                <i class="fas fa-eye"></i> Ver Certificado
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: EXPERIENCIA LABORAL
+    ============================================================ -->
+    <section class="section" id="experiencia">
+      <div class="container">
+        <h2 class="section-title">Experiencia <span class="accent">Laboral</span></h2>
+        <p class="section-subtitle">Prácticas preprofesionales, proyectos y colaboraciones técnicas</p>
+
+        <div class="timeline">
+
+          <!-- EXPERIENCIA 1: SysAdmin -->
+          <div class="timeline-item searchable" data-search="sysadmin linux servidor administración redes infraestructura">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Practicante de Administración de Sistemas (SysAdmin)</h3>
+                  <p class="timeline-company">🏢 Gobierno Regional de Huánuco — Área de Tecnologías de la Información</p>
+                </div>
+                <div class="timeline-period">
+                  <span class="period-badge">Ene 2024 – Jul 2024</span>
+                  <span class="period-badge period-badge--type">Prácticas preprofesionales</span>
+                </div>
+              </div>
+              <div class="timeline-body">
+                <p>
+                  Durante mis prácticas preprofesionales en el área de TI del Gobierno Regional
+                  de Huánuco, asumí la responsabilidad de administrar la infraestructura de
+                  servidores Linux (Ubuntu Server 22.04 LTS y CentOS 7) que soportaban los sistemas
+                  administrativos internos de la institución. Mis actividades comprendían:
+                </p>
+                <ul class="exp-list">
+                  <li>
+                    <strong>Gestión de servidores web:</strong> configuración y mantenimiento de instancias
+                    Apache HTTP Server 2.4 y Nginx 1.24 como reverse proxy para aplicaciones PHP/Laravel y
+                    Node.js. Configuración de virtual hosts, certificados SSL/TLS con Let's Encrypt
+                    (Certbot), redirección HTTP→HTTPS y cabeceras de seguridad (HSTS, X-Frame-Options,
+                    Content-Security-Policy).
+                  </li>
+                  <li>
+                    <strong>Administración de bases de datos:</strong> gestión de instancias PostgreSQL 14
+                    con configuración de usuarios, esquemas y roles de acceso granular. Implementación de
+                    backups automatizados con pg_dump vía cron cada 6 horas, compresión con gzip y
+                    transferencia cifrada a un servidor de respaldo secundario mediante SCP sobre SSH.
+                    Monitoreo de rendimiento con pg_stat_statements y análisis de consultas lentas (slow
+                    query log con umbral de 500ms).
+                  </li>
+                  <li>
+                    <strong>Seguridad de red:</strong> configuración del firewall UFW con políticas
+                    de mínimo privilegio (deny all, allow específico por puerto y IP de origen),
+                    instalación y configuración de Fail2ban para protección contra ataques de fuerza
+                    bruta SSH, análisis de logs de acceso con GoAccess y alertas por correo con Postfix
+                    ante intentos de intrusión detectados.
+                  </li>
+                  <li>
+                    <strong>Virtualización y contenedores:</strong> migración de 3 servicios legacy
+                    (un sistema de gestión documental y dos APIs REST en PHP) desde servidores físicos
+                    a contenedores Docker con imágenes optimizadas multi-stage. Reducción del tiempo
+                    de despliegue de 2 horas (manual) a 8 minutos (pipeline automatizado con shell script).
+                  </li>
+                  <li>
+                    <strong>Documentación técnica:</strong> redacción de procedimientos operativos
+                    estándar (SOPs) para operaciones de rutina: creación de usuarios, reseteo de
+                    contraseñas, restauración de backups, reinicio controlado de servicios y respuesta
+                    a alertas de monitoreo. Todos los documentos fueron almacenados en Confluence y
+                    versionados en Git.
+                  </li>
+                </ul>
+                <p>
+                  Como resultado de las optimizaciones implementadas, la disponibilidad promedio de
+                  los servicios críticos mejoró del 94.2% al 99.1% durante el período de prácticas,
+                  y el tiempo de respuesta a incidentes de nivel 1 se redujo de 4.5 horas a 45 minutos
+                  en promedio.
+                </p>
+              </div>
+              <div class="timeline-tags">
+                <span class="tag">Ubuntu Server</span><span class="tag">Nginx</span>
+                <span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+                <span class="tag">UFW</span><span class="tag">Fail2ban</span>
+                <span class="tag">Bash</span><span class="tag">Certbot</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EXPERIENCIA 2: Arquitectura de Software - QAWAY -->
+          <div class="timeline-item searchable" data-search="arquitectura software QAWAY diseño sistema microservicios API REST">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Diseñador de Arquitectura de Software — Proyecto QAWAY</h3>
+                  <p class="timeline-company">🎓 UNHEVAL — Laboratorio de Ingeniería de Software (Proyecto Académico-Investigativo)</p>
+                </div>
+                <div class="timeline-period">
+                  <span class="period-badge">Mar 2023 – Dic 2023</span>
+                  <span class="period-badge period-badge--type">Proyecto académico</span>
+                </div>
+              </div>
+              <div class="timeline-body">
+                <p>
+                  <strong>QAWAY</strong> (del quechua: "mirar hacia adelante") es un sistema de
+                  información web para la gestión integral de recursos educativos en instituciones
+                  de educación básica regular (EBR) de zonas rurales de Huánuco, desarrollado en
+                  colaboración con la Dirección Regional de Educación de Huánuco (DREH). En este
+                  proyecto asumí el rol de <strong>Arquitecto de Software Principal</strong>, siendo
+                  responsable del diseño y documentación de toda la arquitectura del sistema.
+                </p>
+                <p>
+                  El diseño arquitectónico adoptó un patrón de <strong>microservicios</strong> con
+                  despliegue en contenedores Docker orquestados con Docker Compose, comunicación
+                  asíncrona entre servicios mediante <strong>RabbitMQ</strong> (mensajería AMQP) y
+                  comunicación síncrona vía APIs REST con autenticación <strong>OAuth 2.0 + JWT</strong>.
+                  La arquitectura fue documentada con diagramas C4 (Context, Containers, Components,
+                  Code) utilizando la notación de Simon Brown, diagramas de secuencia UML para flujos
+                  críticos y diagramas de despliegue para la infraestructura de producción.
+                </p>
+                <ul class="exp-list">
+                  <li>
+                    <strong>Microservicio de autenticación:</strong> implementación de servidor OAuth 2.0
+                    con flujos Authorization Code, Client Credentials y Refresh Token. Gestión de sesiones
+                    stateless con JWT (algoritmo RS256), lista negra de tokens revocados en Redis y políticas
+                    de contraseñas con bcrypt (salt rounds = 12).
+                  </li>
+                  <li>
+                    <strong>Microservicio de gestión académica:</strong> API REST en Node.js + Express para
+                    CRUD de estudiantes, docentes, cursos, asistencia y calificaciones. Persistencia en
+                    PostgreSQL con ORM Sequelize, validación de datos con Joi y documentación automática
+                    con Swagger/OpenAPI 3.0.
+                  </li>
+                  <li>
+                    <strong>Microservicio de reportes y analíticas:</strong> generación de informes PDF
+                    con PDFKit, exportación a Excel con ExcelJS, y dashboard de indicadores educativos
+                    con gráficos interactivos (Chart.js). Caché de reportes frecuentes en Redis con TTL
+                    de 1 hora para optimizar el tiempo de generación.
+                  </li>
+                  <li>
+                    <strong>API Gateway:</strong> implementación con Nginx como reverse proxy centralizado,
+                    con rate limiting (100 req/min por IP), circuit breaker pattern, registro centralizado
+                    de logs con Winston (formato JSON estructurado) y correlación de trazas con IDs únicos
+                    por request (UUID v4).
+                  </li>
+                </ul>
+                <p>
+                  El sistema QAWAY fue presentado en el <strong>IX Congreso Nacional de Educación
+                  Inclusiva</strong> como caso de estudio de tecnología educativa en zonas rurales,
+                  obteniendo mención honrosa en la categoría "Innovación en Gestión Educativa con
+                  TIC".
+                </p>
+              </div>
+              <div class="timeline-tags">
+                <span class="tag">Microservicios</span><span class="tag">Node.js</span>
+                <span class="tag">RabbitMQ</span><span class="tag">OAuth 2.0</span>
+                <span class="tag">Redis</span><span class="tag">Swagger</span>
+                <span class="tag">Docker Compose</span><span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EXPERIENCIA 3: Gestor de Requerimientos -->
+          <div class="timeline-item searchable" data-search="requerimientos análisis UML stakeholders casos de uso historias usuario">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Gestor de Requerimientos de Software — Sistema SIG-SALUD</h3>
+                  <p class="timeline-company">🏥 Hospital Regional Hermilio Valdizán — Área de Informática (Proyecto colaborativo)</p>
+                </div>
+                <div class="timeline-period">
+                  <span class="period-badge">Ago 2023 – Nov 2023</span>
+                  <span class="period-badge period-badge--type">Colaboración externa</span>
+                </div>
+              </div>
+              <div class="timeline-body">
+                <p>
+                  Participé como <strong>Analista y Gestor de Requerimientos</strong> en el
+                  proyecto SIG-SALUD, un sistema de información gerencial para la gestión de
+                  citas médicas, historias clínicas electrónicas y farmacia hospitalaria del
+                  Hospital Regional Hermilio Valdizán de Huánuco. El proyecto fue desarrollado
+                  como parte de un convenio de cooperación académica entre UNHEVAL y el hospital.
+                </p>
+                <p>
+                  Mis responsabilidades incluyeron la planificación y conducción de sesiones de
+                  elicitación de requerimientos con más de 15 stakeholders de distintas áreas
+                  funcionales (médicos, enfermeras, administrativos, farmacéuticos, directivos).
+                  Apliqué múltiples técnicas de elicitación según el perfil del stakeholder:
+                  entrevistas semi-estructuradas, cuestionarios online con Google Forms,
+                  observación directa del flujo de trabajo (shadowing), análisis de documentos
+                  existentes (formatos físicos, reportes gerenciales) y sesiones de prototipado
+                  participativo con maquetas en papel (paper prototyping).
+                </p>
+                <ul class="exp-list">
+                  <li>
+                    <strong>Documentación SRS:</strong> elaboración de la Especificación de
+                    Requisitos de Software siguiendo el estándar IEEE 830-1998. El documento
+                    final contenía 47 requisitos funcionales (clasificados por módulo: citas,
+                    HC electrónica, farmacia, reportes) y 18 requisitos no funcionales (rendimiento:
+                    tiempo de respuesta &lt;2s para 95% de transacciones; disponibilidad: 99.5%
+                    mensual; seguridad: cifrado AES-256 para datos sensibles del paciente;
+                    usabilidad: cumplimiento WCAG 2.1 nivel AA).
+                  </li>
+                  <li>
+                    <strong>Modelado UML:</strong> elaboración de 12 diagramas de casos de uso
+                    con plantillas detalladas (precondiciones, postcondiciones, flujo principal,
+                    flujos alternativos, excepciones), 8 diagramas de actividad para procesos
+                    de negocio críticos y 5 diagramas de secuencia para interacciones complejas
+                    entre subsistemas. Herramienta utilizada: StarUML 4.0.
+                  </li>
+                  <li>
+                    <strong>Gestión del cambio:</strong> implementación de un sistema de control
+                    de cambios de requerimientos con formulario de solicitud de cambio (RFC),
+                    análisis de impacto, aprobación por el comité de stakeholders y actualización
+                    de la matriz de trazabilidad. Se gestionaron 23 solicitudes de cambio durante
+                    el proyecto, de las cuales 18 fueron aprobadas, 3 diferidas y 2 rechazadas
+                    con justificación documentada.
+                  </li>
+                </ul>
+              </div>
+              <div class="timeline-tags">
+                <span class="tag">IEEE 830</span><span class="tag">UML</span>
+                <span class="tag">StarUML</span><span class="tag">Elicitación</span>
+                <span class="tag">Matriz de trazabilidad</span><span class="tag">WCAG 2.1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EXPERIENCIA 4: Desarrollo Web Freelance -->
+          <div class="timeline-item searchable" data-search="freelance web desarrollo React Node clientes PYME">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Desarrollador Web Full Stack — Freelance</h3>
+                  <p class="timeline-company">💻 Proyectos independientes para PYMES de Huánuco</p>
+                </div>
+                <div class="timeline-period">
+                  <span class="period-badge">2022 – Presente</span>
+                  <span class="period-badge period-badge--type">Trabajo independiente</span>
+                </div>
+              </div>
+              <div class="timeline-body">
+                <p>
+                  De manera paralela a mis estudios, he desarrollado proyectos web para pequeñas
+                  y medianas empresas (PYMES) de la región Huánuco, principalmente en los sectores
+                  de comercio, gastronomía, transporte y servicios profesionales. Cada proyecto
+                  siguió un ciclo completo de ingeniería: análisis de requerimientos, diseño de
+                  interfaz en Figma, desarrollo frontend y backend, configuración de servidor,
+                  despliegue y capacitación al cliente final.
+                </p>
+                <ul class="exp-list">
+                  <li>
+                    <strong>Restaurant "El Huanuqueño":</strong> sistema de pedidos online con
+                    catálogo digital, carrito de compras, integración con Yape/Plin via QR y
+                    panel de administración para gestión de menú y pedidos. Stack: React + Firebase
+                    (Firestore, Auth, Storage). Incremento del 35% en pedidos los primeros 2 meses.
+                  </li>
+                  <li>
+                    <strong>Transporte "Turismo Andino":</strong> plataforma de reserva de pasajes
+                    interprovinciales con selección de asientos interactiva (SVG dinámico), pasarela
+                    de pago con Culqi (proveedor peruano), generación de e-tickets en PDF y dashboard
+                    de ocupación en tiempo real con WebSockets. Stack: Node.js + Express + MySQL +
+                    React + Socket.io.
+                  </li>
+                  <li>
+                    <strong>Consultora "DataPro Huánuco":</strong> landing page corporativa con
+                    blog técnico (CMS Strapi headless), formulario de contacto con EmailJS, SEO
+                    técnico (sitemap XML, Schema.org, meta tags OpenGraph) y despliegue en Vercel
+                    con dominio personalizado. Posicionamiento en primera página de Google para
+                    "consultoría de sistemas Huánuco" en 6 semanas.
+                  </li>
+                </ul>
+              </div>
+              <div class="timeline-tags">
+                <span class="tag">React</span><span class="tag">Node.js</span>
+                <span class="tag">Firebase</span><span class="tag">MySQL</span>
+                <span class="tag">Figma</span><span class="tag">Strapi</span>
+                <span class="tag">Socket.io</span><span class="tag">Vercel</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: CONGRESOS Y PONENCIAS
+    ============================================================ -->
+    <section class="section" id="congresos">
+      <div class="container">
+        <h2 class="section-title">Congresos y <span class="accent">Ponencias</span></h2>
+        <p class="section-subtitle">Participación en eventos académicos, científicos y tecnológicos</p>
+
+        <div class="congresos-grid">
+
+          <!-- CONGRESO 1: CONEIS -->
+          <div class="glass-card congreso-card searchable" data-search="CONEIS congreso nacional ingeniería sistemas ponencia investigación">
+            <div class="congreso-header">
+              <div class="congreso-badge congreso-badge--nacional">🏆 Ponente</div>
+              <div class="congreso-meta">
+                <span class="congreso-date">📅 Octubre 2023</span>
+                <span class="congreso-lugar">📍 Lima, Perú — PUCP</span>
+              </div>
+            </div>
+            <h3 class="congreso-titulo">XII Congreso Nacional de Ingeniería de Sistemas e Informática (CONEIS 2023)</h3>
+            <p class="congreso-organizador">Organizado por la Sociedad Peruana de Ingeniería de Sistemas (SPIS) — Pontificia Universidad Católica del Perú</p>
+            <div class="congreso-body">
+              <p>
+                Participé como <strong>ponente estudiantil</strong> en el track de Innovación
+                Tecnológica presentando el trabajo de investigación titulado:
+                <em>"Arquitectura de Microservicios para Sistemas de Gestión Educativa en Contextos
+                de Baja Conectividad: Caso de Estudio QAWAY"</em>. La ponencia de 20 minutos más
+                10 minutos de preguntas fue evaluada por un comité de 3 docentes investigadores
+                de universidades nacionales.
+              </p>
+              <p>
+                <strong>Contenido de la ponencia:</strong> presentación del problema de conectividad
+                intermitente en zonas rurales de Huánuco (cobertura 4G del 23% en áreas rurales
+                según OSIPTEL 2022), justificación de la arquitectura de microservicios con modo
+                offline-first usando Service Workers y IndexedDB, demostración en vivo del sistema
+                QAWAY en un entorno con ancho de banda limitado a 64kbps (simulado con tc netem
+                en Linux), y resultados preliminares: reducción del 60% en datos transferidos
+                gracias a compresión gzip + caché agresivo, y funcionamiento del 85% de funcionalidades
+                core sin conectividad.
+              </p>
+              <p>
+                El congreso contó con más de 400 asistentes entre docentes investigadores, estudiantes
+                de pre y posgrado, y profesionales del sector TI. Asistí a 8 ponencias magistrales
+                sobre: IA Generativa en procesos de negocio (Dr. Carlos Aliaga, PUCP), Internet de
+                las Cosas industriales (IIoT) con protocolos MQTT y OPC-UA, Blockchain para cadenas
+                de suministro en el sector agroindustrial, y Transformación Digital en el Sector
+                Público Peruano (expositor del MINEDU).
+              </p>
+              <p>
+                <strong>Aprendizajes clave:</strong> profundización en el patrón CQRS (Command Query
+                Responsibility Segregation) para sistemas con alta carga de lectura, técnicas de
+                event sourcing con Apache Kafka para auditoría de cambios en sistemas críticos,
+                y estrategias de pruebas de contratos (contract testing) con Pact para APIs de
+                microservicios. Establecí contacto con docentes investigadores que posteriormente
+                participaron como asesores del proyecto QAWAY.
+              </p>
+            </div>
+            <div class="congreso-tags">
+              <span class="tag">Ponente</span><span class="tag">Microservicios</span>
+              <span class="tag">Offline-first</span><span class="tag">Service Workers</span>
+              <span class="tag">CONEIS 2023</span>
+            </div>
+          </div>
+
+          <!-- CONGRESO 2: Workshop Cloud y DevOps -->
+          <div class="glass-card congreso-card searchable" data-search="cloud devops workshop kubernetes terraform CI/CD pipeline">
+            <div class="congreso-header">
+              <div class="congreso-badge congreso-badge--workshop">🛠️ Asistente</div>
+              <div class="congreso-meta">
+                <span class="congreso-date">📅 Julio 2024</span>
+                <span class="congreso-lugar">📍 Virtual — Plataforma Hopin</span>
+              </div>
+            </div>
+            <h3 class="congreso-titulo">Workshop Internacional de Tecnologías Cloud y DevOps 2024 — CloudNativeCon Perú</h3>
+            <p class="congreso-organizador">CNCF (Cloud Native Computing Foundation) — Capítulo Perú + AWS Community Peru</p>
+            <div class="congreso-body">
+              <p>
+                Participé en el workshop de 3 días (24 horas de contenido técnico) organizado
+                por la Cloud Native Computing Foundation (CNCF) en su capítulo peruano, en
+                colaboración con la AWS User Group Lima. El evento reunió a más de 250 profesionales
+                y estudiantes de tecnología de toda Latinoamérica, con ponentes internacionales
+                de Brasil, Argentina, Colombia y México.
+              </p>
+              <p>
+                <strong>Sesiones técnicas destacadas a las que asistí:</strong>
+              </p>
+              <ul class="exp-list">
+                <li>
+                  <em>"Kubernetes en Producción: Lecciones Aprendidas"</em> — expositor principal de
+                  Mercado Libre Brasil. Abordó estrategias de gestión de recursos (Requests y Limits),
+                  autoscaling horizontal (HPA) y vertical (VPA), gestión de secretos con HashiCorp Vault,
+                  y chaos engineering con Chaos Monkey para pruebas de resiliencia en clústeres de producción.
+                </li>
+                <li>
+                  <em>"GitOps con ArgoCD: Infraestructura como Código a Escala"</em> — arquitecto de Platzi.
+                  Demostración práctica de sincronización de estado declarativo entre repositorios Git y
+                  clústeres Kubernetes, con rollback automático ante drift de configuración.
+                </li>
+                <li>
+                  <em>"Observabilidad con OpenTelemetry"</em> — ingeniería de VTEX. Implementación del
+                  stack de observabilidad: métricas (Prometheus), logs (Loki), trazas distribuidas (Tempo)
+                  y visualización unificada en Grafana 10 con correlación automática entre las tres señales.
+                </li>
+                <li>
+                  <em>Workshop práctico de 4 horas: "Terraform para AWS desde Cero"</em> — instructor
+                  certificado HashiCorp. Provisioning de infraestructura AWS (VPC, subnets, EC2, RDS,
+                  ALB) con Terraform, módulos reutilizables, gestión de estado en S3 con locking en
+                  DynamoDB y pipelines de validación/plan/apply en GitHub Actions.
+                </li>
+              </ul>
+              <p>
+                <strong>Aprendizajes aplicados:</strong> implementé los conceptos de GitOps en el
+                proyecto QAWAY, migrando el despliegue manual a un flujo declarativo con ArgoCD,
+                lo que redujo el tiempo de despliegue de 25 minutos a 4 minutos y eliminó
+                completamente los errores de configuración manual. También integré OpenTelemetry
+                en el microservicio de autenticación de QAWAY, logrando visibilidad completa del
+                ciclo de vida de cada request.
+              </p>
+            </div>
+            <div class="congreso-tags">
+              <span class="tag">Kubernetes</span><span class="tag">GitOps</span>
+              <span class="tag">ArgoCD</span><span class="tag">Terraform</span>
+              <span class="tag">OpenTelemetry</span><span class="tag">CNCF</span>
+            </div>
+          </div>
+
+          <!-- CONGRESO 3: Seminario IO y Vensim -->
+          <div class="glass-card congreso-card searchable" data-search="investigación operaciones Vensim seminario modelamiento dinámico sistemas">
+            <div class="congreso-header">
+              <div class="congreso-badge congreso-badge--seminario">📊 Participante activo</div>
+              <div class="congreso-meta">
+                <span class="congreso-date">📅 Septiembre 2023</span>
+                <span class="congreso-lugar">📍 Huánuco — UNHEVAL (Salón de Actos)</span>
+              </div>
+            </div>
+            <h3 class="congreso-titulo">IV Seminario de Investigación de Operaciones y Modelamiento de Sistemas con Vensim PLE</h3>
+            <p class="congreso-organizador">UNHEVAL — Facultad de Ingeniería de Sistemas e Informática · Grupo de Investigación GISYS</p>
+            <div class="congreso-body">
+              <p>
+                El seminario de 3 días (20 horas académicas) fue organizado por el Grupo de
+                Investigación en Sistemas (GISYS) de la Facultad de Ingeniería de Sistemas e
+                Informática de la UNHEVAL, con el objetivo de fortalecer las competencias de los
+                estudiantes en modelamiento cuantitativo de sistemas complejos para la toma de
+                decisiones gerenciales basada en evidencia.
+              </p>
+              <p>
+                <strong>Módulo 1 — Fundamentos de la Dinámica de Sistemas (6 horas):</strong>
+                conceptos de sistema, retroalimentación, bucles causales positivos (reforzadores)
+                y negativos (equilibradores), arquetipos sistémicos (Limits to Growth, Shifting the
+                Burden, Escalation, Tragedy of the Commons) y su aplicación en el diagnóstico de
+                problemas organizacionales recurrentes. El Dr. César Arroyo (UNHEVAL) expuso un caso
+                de estudio sobre la dinámica del crecimiento de matrícula universitaria en regiones
+                como Huánuco, identificando los bucles de retroalimentación que explican las
+                fluctuaciones cíclicas observadas históricamente.
+              </p>
+              <p>
+                <strong>Módulo 2 — Modelamiento con Vensim PLE (8 horas):</strong> taller práctico
+                en laboratorio de cómputo con Vensim PLE. Construcción de modelos desde cero:
+                diagrama causal → diagrama de flujo-nivel → ecuaciones diferencial-algebraicas →
+                simulación → análisis de sensibilidad → diseño de políticas de intervención. Modelamos
+                en grupos los siguientes sistemas: dinámica de contagio epidemiológico (modelo
+                SIR adaptado al COVID-19 en Huánuco con datos reales del MINSA 2020-2021), gestión
+                de inventarios con demanda estocástica, y crecimiento logístico de una startup tecnológica.
+              </p>
+              <p>
+                <strong>Módulo 3 — Aplicaciones avanzadas (6 horas):</strong> optimización multiobjetivo
+                con el método de Programación por Metas (Goal Programming), aplicación del análisis
+                envolvente de datos (DEA) para evaluación de eficiencia de unidades organizacionales,
+                y uso de Excel Solver para modelos de programación lineal entera mixta.
+              </p>
+              <p>
+                <strong>Mi proyecto de seminario:</strong> modelé la <em>"Dinámica de la brecha
+                digital en zonas rurales de Huánuco: efecto de políticas de inversión en infraestructura
+                TIC"</em>. El modelo identificó que la política de subsidio directo a dispositivos
+                tiene un efecto 2.3x superior a la sola expansión de cobertura de red en reducir
+                la brecha digital en un horizonte de 10 años, considerando la estructura de ingresos
+                de la población rural huanuqueña. El modelo fue validado con datos del INEI 2017
+                y proyecciones de la Resolución Ministerial 117-2022-MTC/01.
+              </p>
+            </div>
+            <div class="congreso-tags">
+              <span class="tag">Vensim PLE</span><span class="tag">Dinámica de Sistemas</span>
+              <span class="tag">Modelo SIR</span><span class="tag">Goal Programming</span>
+              <span class="tag">Brecha Digital</span><span class="tag">GISYS</span>
+            </div>
+          </div>
+
+          <!-- CONGRESO 4 -->
+          <div class="glass-card congreso-card searchable" data-search="ciberseguridad hackathon CTF seguridad informática ethical hacking">
+            <div class="congreso-header">
+              <div class="congreso-badge congreso-badge--competencia">🥇 3er Lugar</div>
+              <div class="congreso-meta">
+                <span class="congreso-date">📅 Abril 2024</span>
+                <span class="congreso-lugar">📍 Lima, Perú — UNI</span>
+              </div>
+            </div>
+            <h3 class="congreso-titulo">I Hackathon Universitario de Ciberseguridad — CTF (Capture The Flag) Perú 2024</h3>
+            <p class="congreso-organizador">Universidad Nacional de Ingeniería (UNI) — Laboratorio de Seguridad Informática (LABSEC)</p>
+            <div class="congreso-body">
+              <p>
+                Participé como integrante del equipo <strong>"SysGuard UNHEVAL"</strong>
+                (3 estudiantes) en la primera edición del Hackathon Universitario de Ciberseguridad
+                organizado por el Laboratorio de Seguridad Informática de la UNI. El evento reunió
+                a 28 equipos de universidades públicas y privadas del Perú en un CTF (Capture The
+                Flag) de 8 horas de duración.
+              </p>
+              <p>
+                <strong>Categorías del CTF y mi contribución específica:</strong>
+              </p>
+              <ul class="exp-list">
+                <li>
+                  <strong>Web Exploitation (4 retos, 2 resueltos):</strong> explotación de vulnerabilidades
+                  OWASP en aplicaciones web intencionalmente vulnerables (DVWA, WebGoat). Resolví el reto
+                  de SQL Injection ciega (blind SQLi) con la técnica de boolean-based usando burp suite para
+                  automatizar la extracción de hashes de contraseñas de la base de datos.
+                </li>
+                <li>
+                  <strong>Forensics (3 retos, 2 resueltos):</strong> análisis de imágenes de disco con
+                  Autopsy (FTK Imager), recuperación de archivos eliminados, análisis de metadatos EXIF en
+                  imágenes para geolocalización, y análisis de capturas de tráfico PCAP con Wireshark para
+                  extracción de credenciales en protocolos no cifrados (Telnet, FTP, HTTP Basic Auth).
+                </li>
+                <li>
+                  <strong>Cryptography (2 retos, 1 resuelto):</strong> descifrado de ciphertext cifrado
+                  con esquemas clásicos (Vigenère, Rail Fence, base64 multi-capa) usando análisis de
+                  frecuencia de caracteres y herramientas especializadas (CyberChef, quipqiup).
+                </li>
+              </ul>
+              <p>
+                El equipo <strong>SysGuard UNHEVAL</strong> obtuvo el <strong>3er lugar</strong>
+                con 2,750 puntos, siendo la única universidad pública de provincias en el podio.
+                Este resultado fue un hito para la facultad y motivó la creación del primer
+                club de ciberseguridad (ClubSec UNHEVAL) que actualmente lidera Junior con
+                12 estudiantes activos.
+              </p>
+            </div>
+            <div class="congreso-tags">
+              <span class="tag">CTF</span><span class="tag">SQL Injection</span>
+              <span class="tag">Wireshark</span><span class="tag">Forensics</span>
+              <span class="tag">Burp Suite</span><span class="tag">3er Lugar 🥇</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: PROYECTOS
+    ============================================================ -->
+    <section class="section" id="proyectos">
+      <div class="container">
+        <h2 class="section-title">Mis <span class="accent">Proyectos</span></h2>
+        <p class="section-subtitle">Trabajos académicos, investigativos y personales más relevantes</p>
+
+        <div class="projects-grid">
+
+          <div class="glass-card project-card searchable" data-search="QAWAY sistema educativo microservicios React Node Docker">
+            <div class="project-img project-img--1">
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn">Ver Demo</a>
+                <a href="TU_LINK_DE_GITHUB_AQUÍ" target="_blank" class="project-link-btn project-link-btn--outline">GitHub</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Sistema QAWAY</h3>
+              <p class="project-desc">
+                Sistema de gestión educativa con arquitectura de microservicios para instituciones
+                rurales de Huánuco. Modo offline-first con Service Workers, OAuth 2.0 + JWT,
+                API Gateway Nginx, RabbitMQ y despliegue en Docker Compose. Mención honrosa
+                en el IX Congreso Nacional de Educación Inclusiva.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React</span><span class="tag">Node.js</span>
+                <span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+                <span class="tag">RabbitMQ</span><span class="tag">Redis</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card project-card searchable" data-search="SIG-SALUD hospital citas médicas historia clínica sistema información">
+            <div class="project-img project-img--2">
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn">Ver Demo</a>
+                <a href="TU_LINK_DE_GITHUB_AQUÍ" target="_blank" class="project-link-btn project-link-btn--outline">GitHub</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">SIG-SALUD — Historia Clínica Electrónica</h3>
+              <p class="project-desc">
+                Sistema de información gerencial hospitalaria para el Hospital Regional Hermilio
+                Valdizán. Módulos de citas, HC electrónica, farmacia y reportes. Documentado
+                con IEEE 830, diagramas UML en StarUML y validado con 15 stakeholders reales.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">MySQL</span>
+                <span class="tag">Vue.js</span><span class="tag">IEEE 830</span>
+                <span class="tag">UML</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card project-card searchable" data-search="brecha digital Vensim simulación dinámica sistemas Huánuco">
+            <div class="project-img project-img--3">
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn">Ver Simulación</a>
+                <a href="TU_LINK_DE_GITHUB_AQUÍ" target="_blank" class="project-link-btn project-link-btn--outline">Repositorio</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Modelo Dinámico: Brecha Digital en Huánuco</h3>
+              <p class="project-desc">
+                Simulación de dinámica de sistemas con Vensim PLE para modelar el efecto de
+                políticas de inversión TIC en la reducción de la brecha digital en zonas rurales
+                de Huánuco. Validado con datos INEI 2017 y MTC 2022. Presentado en el IV
+                Seminario de IO UNHEVAL 2023.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Vensim PLE</span><span class="tag">Dinámica de Sistemas</span>
+                <span class="tag">INEI</span><span class="tag">Python</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card project-card searchable" data-search="CTF ciberseguridad herramienta automatización vulnerabilidades">
+            <div class="project-img project-img--1">
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn">Ver Writeup</a>
+                <a href="TU_LINK_DE_GITHUB_AQUÍ" target="_blank" class="project-link-btn project-link-btn--outline">GitHub</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">CTF Toolkit — SysGuard Scripts</h3>
+              <p class="project-desc">
+                Colección de scripts Python y Bash para automatización de tareas comunes en
+                competencias CTF: extracción de metadatos EXIF, análisis de frecuencia de
+                caracteres, decodificación multi-capa y fuzzing de directorios web. Usado
+                en el Hackathon UNI 2024 (3er lugar).
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span><span class="tag">Bash</span>
+                <span class="tag">CyberChef</span><span class="tag">CTF</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card project-card searchable" data-search="transporte reserva pasajes Node.js WebSockets React pasarela pago">
+            <div class="project-img project-img--2">
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn">Ver Demo</a>
+                <a href="TU_LINK_DE_GITHUB_AQUÍ" target="_blank" class="project-link-btn project-link-btn--outline">GitHub</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">TurisAndino — Reservas de Pasajes Online</h3>
+              <p class="project-desc">
+                Plataforma de reserva de pasajes interprovinciales con selección de asientos
+                SVG interactivo, pasarela Culqi, e-tickets PDF y panel en tiempo real con
+                Socket.io. Actualmente en producción para Transporte Turismo Andino Huánuco.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Node.js</span><span class="tag">React</span>
+                <span class="tag">MySQL</span><span class="tag">Socket.io</span>
+                <span class="tag">Culqi</span><span class="tag">PDFKit</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card project-card searchable" data-search="ClubSec ciberseguridad UNHEVAL club estudiantes">
+            <div class="project-img project-img--3">
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn">Saber más</a>
+                <a href="TU_LINK_DE_GITHUB_AQUÍ" target="_blank" class="project-link-btn project-link-btn--outline">GitHub Org</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">ClubSec UNHEVAL — Portal y Recursos CTF</h3>
+              <p class="project-desc">
+                Plataforma web del club de ciberseguridad de la UNHEVAL: repositorio de
+                writeups de CTFs resueltos, recursos de aprendizaje curados (HTB, TryHackMe,
+                PicoCTF), foro interno y calendario de eventos. Desarrollada con Next.js,
+                MDX para writeups y desplegada en Vercel.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Next.js</span><span class="tag">MDX</span>
+                <span class="tag">Tailwind</span><span class="tag">Vercel</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN: CONTACTO
+    ============================================================ -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <h2 class="section-title">Ponerse en <span class="accent">Contacto</span></h2>
+        <p class="section-subtitle">¿Tienes un proyecto, propuesta académica o simplemente quieres conectar? Escríbeme.</p>
+
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <div class="glass-card contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <p class="contact-label">Email </p>
+                <a href="mailto:juniorhin15@gmail.com" class="contact-value">juniorhin15@gmail.com</a>
+              </div>
+            </div>
+            <div class="glass-card contact-item">
+              <span class="contact-icon">📱</span>
+              <div>
+                <p class="contact-label">WhatsApp</p>
+                <a href="https://wa.me/51900670757" class="contact-value">+51 900 670 757</a>
+              </div>
+            </div>
+            <div class="glass-card contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <p class="contact-label">Ubicación</p>
+                <p class="contact-value">Huánuco, Perú 🇵🇪</p>
+              </div>
+            </div>
+            <div class="glass-card contact-item">
+              <span class="contact-icon">🎓</span>
+              <div>
+                <p class="contact-label">Universidad</p>
+                <p class="contact-value">UNHEVAL — FISMEC · VII Ciclo</p>
+              </div>
+            </div>
+            <div class="glass-card contact-item">
+              <span class="contact-icon">💼</span>
+              <div>
+                <p class="contact-label">Disponibilidad</p>
+                <p class="contact-value">Prácticas preprofesionales / Proyectos freelance</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="glass-card contact-form" id="contactForm" action="#" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="asunto">Asunto</label>
+              <input type="text" id="asunto" name="asunto" placeholder="Propuesta, consulta, colaboración..." />
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame sobre tu proyecto o propuesta..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <i class="fas fa-paper-plane"></i> Enviar Mensaje
+            </button>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <p>
+      Diseñado y desarrollado por
+      <span class="accent">Junior Hinostroza</span>
+      · © <span id="year"></span>
+    </p>
+    <p class="footer-sub">Ingeniería de Sistemas — UNHEVAL · Construido con HTML, CSS &amp; JS vanilla ❤️</p>
+    <div class="footer-socials">
+      <a href="https://github.com/N1C0L4SJ?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/junior-hinostroza-0b2b8921a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
